@@ -1,6 +1,10 @@
 package com.example.locationfinder.ui.schedule
 
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.locationfinder.BR
 import com.example.locationfinder.R
 import com.example.locationfinder.databinding.FragmentScheduleBinding
@@ -16,4 +20,12 @@ class ScheduleFragment :
     override fun getBindingVariable(): Int = BR.viewModel
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding().go.setOnClickListener {
+            findNavController().navigate(R.id.action_scheduleFragment_to_makeNewPostFragment)
+        }
+
+    }
 }

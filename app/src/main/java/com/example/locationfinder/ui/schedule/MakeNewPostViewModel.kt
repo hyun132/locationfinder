@@ -7,7 +7,7 @@ import com.example.locationfinder.ui.location.LocationNavigator
 /**
  * LocationViewModel
  */
-class ScheduleViewModel(application: Application) :
-    BaseViewModel<ScheduleNavigator>(application) {
+class MakeNewPostViewModel(application: Application) :
+    BaseViewModel<MakeNewPostNavigator>(application) {
 
 }

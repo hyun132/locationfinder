@@ -4,6 +4,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 29
@@ -77,6 +79,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
     implementation "androidx.room:room-rxjava2:$room_rxjava2"
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:19.2.2'
+    implementation platform('com.google.firebase:firebase-bom:27.1.0')
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
 
     kapt "androidx.room:room-compiler:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_testing"
@@ -139,7 +145,7 @@ dependencies {
     implementation "androidx.work:work-runtime:$worker"
 
     /* crashlytics */
-    implementation "com.google.firebase:firebase-crashlytics:$crashlytics_version"
+    implementation "com.google.firebase:firebase-crashlytics-ktx:$crashlytics_version"
 
     /* FCM*/
     implementation "com.google.firebase:firebase-core:$firebase_core_version"

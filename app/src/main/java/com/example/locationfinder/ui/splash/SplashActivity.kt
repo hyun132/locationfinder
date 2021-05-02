@@ -10,6 +10,9 @@ import com.example.locationfinder.constant.McConstants.SPLASH_DELAY
 import com.example.locationfinder.databinding.ActivitySplashBinding
 import com.example.locationfinder.ui.base.BaseActivity
 import com.example.locationfinder.ui.dashboard.DashboardActivity
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory
+import com.google.android.play.core.install.model.AppUpdateType
+import com.google.android.play.core.install.model.UpdateAvailability
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -33,5 +36,17 @@ class SplashActivity :
             startActivity(Intent(this, DashboardActivity::class.java))
             finish()
         }, SPLASH_DELAY)
+
+
+        val appUPdateManager = AppUpdateManagerFactory.create(this)
+
+        appUPdateManager.appUpdateInfo.addOnSuccessListener {
+            if (it.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE && it.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)){
+                try {
+                    appUPdateManager.startUpdateFlowForResult(it,AppUpdateType.IMMEDIATE,this,10)
+                }catch (e:Exception){}
+            }
+        }
+
     }
 }

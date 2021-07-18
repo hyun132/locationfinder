@@ -3,8 +3,8 @@
 
 
 ## 사용기술
-### Kotlin
-### MVVM
-### retrofit
-### koin
-### Livedata, databinding, navigation, Room, Paging 등
+#### Kotlin
+#### MVVM
+#### retrofit
+#### koin
+#### Livedata, databinding, navigation, Room, Paging 등
